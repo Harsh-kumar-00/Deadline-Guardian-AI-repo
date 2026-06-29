@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Oswald", sans-serif;
+  --font-mono: "Space Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  --bg: #111113;
+  --card-bg: #18181A;
+  --panel-bg: #141416;
+  --text-primary: #EAEAE5;
+  --text-secondary: #A5A5A2;
+  --text-muted: #70706B;
+  --accent: #FF4500;
+  --accent-hover: #E03E00;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-subtle: rgba(255, 255, 255, 0.04);
+  --border-accent: rgba(255, 69, 0, 0.3);
+  --badge-blue-bg: #261611;
+  --badge-blue-text: #FF4500;
+  --badge-red-bg: #2b110b;
+  --badge-red-text: #FF5533;
+  --badge-amber-bg: #2e1d0d;
+  --badge-amber-text: #FF9900;
+  --badge-green-bg: #0d2c18;
+  --badge-green-text: #4ade80;
+}
+
+.dark {
+  --bg: #111113;
+  --card-bg: #18181A;
+  --panel-bg: #141416;
+  --text-primary: #EAEAE5;
+  --text-secondary: #A5A5A2;
+  --text-muted: #70706B;
+  --accent: #FF4500;
+  --accent-hover: #E03E00;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-subtle: rgba(255, 255, 255, 0.04);
+  --border-accent: rgba(255, 69, 0, 0.3);
+  --badge-blue-bg: #261611;
+  --badge-blue-text: #FF4500;
+  --badge-red-bg: #2b110b;
+  --badge-red-text: #FF5533;
+  --badge-amber-bg: #2e1d0d;
+  --badge-amber-text: #FF9900;
+  --badge-green-bg: #0d2c18;
+  --badge-green-text: #4ade80;
+  color-scheme: dark;
+}
+
+.light, :root:not(.dark) {
+  --bg: #F4F4F0;
+  --card-bg: #FFFFFF;
+  --panel-bg: #EBEBE6;
+  --text-primary: #111113;
+  --text-secondary: #4E4E4A;
+  --text-muted: #80807B;
+  --accent: #FF4500;
+  --accent-hover: #D83B00;
+  --border: rgba(17, 17, 19, 0.12);
+  --border-subtle: rgba(17, 17, 19, 0.06);
+  --border-accent: rgba(255, 69, 0, 0.25);
+  --badge-blue-bg: #FFF0EB;
+  --badge-blue-text: #D83B00;
+  --badge-red-bg: #FFF0F0;
+  --badge-red-text: #CC1100;
+  --badge-amber-bg: #FFFBEB;
+  --badge-amber-text: #B45309;
+  --badge-green-bg: #F0FDF4;
+  --badge-green-text: #15803D;
+  color-scheme: light;
+}
+
+@layer base {
+  body {
+    background-color: var(--bg) !important;
+    color: var(--text-primary) !important;
+    font-family: var(--font-sans);
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+}
+
+/* Custom variant dark selector for Tailwind class-based support */
+@variant dark (&:where(.dark, .dark *));
+
+/* General Layout Elements matching the industrial style */
+.bg-white, .dark .bg-white {
+  background-color: var(--card-bg) !important;
+  color: var(--text-primary) !important;
+}
+
+.bg-gray-50, .dark .bg-gray-50 {
+  background-color: var(--bg) !important;
+}
+
+.bg-gray-100, .dark .bg-gray-100 {
+  background-color: var(--panel-bg) !important;
+}
+
+.bg-gray-50\/40, .dark .bg-gray-50\/40 {
+  background-color: var(--border-subtle) !important;
+}
+
+/* Accent elements styled as the safety-orange style */
+.text-blue-600, .text-blue-700, .text-blue-500,
+.dark .text-blue-600, .dark .text-blue-700, .dark .text-blue-500 {
+  color: var(--badge-blue-text) !important;
+}
+
+.bg-blue-600, .dark .bg-blue-600,
+.bg-blue-700, .dark .bg-blue-700 {
+  background-color: var(--accent) !important;
+  color: #111113 !important;
+}
+
+.bg-blue-50, .dark .bg-blue-50 {
+  background-color: var(--badge-blue-bg) !important;
+  color: var(--badge-blue-text) !important;
+}
+
+.bg-blue-50\/70, .dark .bg-blue-50\/70 {
+  background-color: rgba(255, 69, 0, 0.1) !important;
+}
+
+/* Borders stylized with solid, high-contrast values */
+.border-gray-100, .border-gray-150, .border-gray-200, .border-gray-250,
+.dark .border-gray-100, .dark .border-gray-150, .dark .border-gray-200, .dark .border-gray-250 {
+  border-color: var(--border) !important;
+}
+
+.border-blue-100, .border-blue-200, .border-blue-300,
+.dark .border-blue-100, .dark .border-blue-200, .dark .border-blue-300 {
+  border-color: var(--border-accent) !important;
+}
+
+/* Font Display assignments */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display) !important;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+/* Specific Industrial Labels */
+.text-gray-400, .text-gray-450, .text-gray-455, .text-gray-500,
+.dark .text-gray-400, .dark .text-gray-450, .dark .text-gray-455, .dark .text-gray-500 {
+  color: var(--text-muted) !important;
+}
+
+/* Input Fields & Overrides */
+input, select, textarea, 
+.dark input, .dark select, .dark textarea,
+.light input, .light select, .light textarea {
+  background-color: var(--card-bg) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 4px !important;
+  font-family: var(--font-sans) !important;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent) !important;
+  outline: none !important;
+}
+
+select option {
+  background-color: var(--card-bg) !important;
+  color: var(--text-primary) !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--text-muted) !important;
+  opacity: 0.7;
+}
+
+/* Primary Button elements styled with Accent Color and Space Mono typography */
+.btn-primary, button.bg-blue-600, button.bg-blue-700 {
+  background-color: var(--accent) !important;
+  color: #111113 !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  border-radius: 0px !important;
+  transition: all 0.2s ease !important;
+}
+
+.light .btn-primary, .light button.bg-blue-600, .light button.bg-blue-700,
+:root:not(.dark) .btn-primary, :root:not(.dark) button.bg-blue-600, :root:not(.dark) button.bg-blue-700 {
+  color: #FFFFFF !important;
+}
+
+.btn-primary:hover, button.bg-blue-600:hover, button.bg-blue-700:hover {
+  background-color: var(--accent-hover) !important;
+}
+
+/* Alert States in Industrial theme */
+.text-red-600, .text-red-700, .dark .text-red-600, .dark .text-red-700 {
+  color: var(--badge-red-text) !important;
+}
+.bg-red-50, .dark .bg-red-50 {
+  background-color: var(--badge-red-bg) !important;
+  color: var(--badge-red-text) !important;
+  border-color: var(--border-accent) !important;
+}
+
+.text-amber-600, .text-amber-700, .dark .text-amber-600, .dark .text-amber-700 {
+  color: var(--badge-amber-text) !important;
+}
+.bg-amber-50, .dark .bg-amber-50 {
+  background-color: var(--badge-amber-bg) !important;
+  color: var(--badge-amber-text) !important;
+}
+
+.text-green-600, .text-green-700, .dark .text-green-600, .dark .text-green-700 {
+  color: var(--badge-green-text) !important;
+}
+.bg-green-50, .dark .bg-green-50 {
+  background-color: var(--badge-green-bg) !important;
+  color: var(--badge-green-text) !important;
+}
+
+/* Settings, Headings and labels mapping */
+.text-gray-950, .text-gray-900, .text-gray-850, .text-gray-800,
+.dark .text-gray-950, .dark .text-gray-900, .dark .text-gray-850, .dark .text-gray-800 {
+  color: var(--text-primary) !important;
+}
+
+.text-gray-750, .text-gray-700, .text-gray-600,
+.dark .text-gray-750, .dark .text-gray-700, .dark .text-gray-600 {
+  color: var(--text-secondary) !important;
+}
+
+/* Custom visual adjustments for industrial header */
+header {
+  border-bottom: 2px solid var(--accent) !important;
+}
+
+/* Navigation tabs in industrial style */
+.bg-gray-100 button, .dark .bg-gray-100 button {
+  border-radius: 0px !important;
+  font-family: var(--font-sans) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  transition: all 0.2s ease;
+}
+
+/* Active buttons styling - Safety Orange background with dark/light text */
+.bg-gray-100 button.bg-white, .dark .bg-gray-100 button.bg-white,
+button[id^="nav-tab-"].bg-white {
+  background-color: var(--accent) !important;
+  color: #111113 !important;
+  font-weight: 700 !important;
+  border-color: var(--accent) !important;
+}
+
+.light .bg-gray-100 button.bg-white,
+.light button[id^="nav-tab-"].bg-white,
+:root:not(.dark) .bg-gray-100 button.bg-white,
+:root:not(.dark) button[id^="nav-tab-"].bg-white {
+  background-color: var(--accent) !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  border-color: var(--accent) !important;
+}
+
+/* Inactive buttons text color */
+.bg-gray-100 button.text-gray-500, .dark .bg-gray-100 button.text-gray-500 {
+  color: var(--text-muted) !important;
+  background-color: transparent !important;
+}
+.bg-gray-100 button.text-gray-500:hover, .dark .bg-gray-100 button.text-gray-500:hover {
+  color: var(--accent) !important;
+  background-color: var(--border-subtle) !important;
+}
+
+.light .bg-gray-100 button.text-gray-500,
+:root:not(.dark) .bg-gray-100 button.text-gray-500 {
+  color: var(--text-muted) !important;
+  background-color: transparent !important;
+}
+.light .bg-gray-100 button.text-gray-500:hover,
+:root:not(.dark) .bg-gray-100 button.text-gray-500:hover {
+  color: var(--accent) !important;
+  background-color: var(--border-subtle) !important;
+}
+
+/* Navigation tabs in industrial mode fallback */
+button[id^="nav-tab-"] {
+  border-radius: 0px !important;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+
+
+

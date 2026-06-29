@@ -1,0 +1,6 @@
+{
+  "name": "Deadline Guardian AI",
+  "description": "The Last-Minute Life Saver: an AI-powered productivity companion that helps you avoid missing deadlines with risk calculations, auto-scheduled tasks, and Rescue Mode plans.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
